@@ -14,14 +14,15 @@ class DBHelper {
   });
   return dbPromise;
   }
-
+  /*
+  Open Indexed DB and store the data to Indexed DB
+  */
   static storeRestDataDB(restData){
       return DBHelper.openDB().then(db => {
       if(!db) return;
       const transaction = db.transaction('restStore', 'readwrite');
       const restStore = transaction.objectStore('restStore');
       restData.forEach(restaurant => {
-        //console.log('saving data.....',restaurant);
         restStore.put(restaurant);
       });
       return transaction.complete;
@@ -36,6 +37,9 @@ class DBHelper {
     const port = 1337 // Change this to your server port from where data is fetch
     return `http://localhost:${port}/restaurants`;
   }
+  /*
+  Fetch the data from Indexed DB
+  */
   static dbRestaurantData(){
     let restData = DBHelper.openDB().then(db => {
         if (db){
@@ -44,6 +48,10 @@ class DBHelper {
           });
     return restData;
   }
+  /*
+  Fetch the data from API which is deployed at 1337 and 
+  then store that data to Indexed DB
+  */
   static apiRestaurantData(){
     let url = `${DBHelper.DATABASE_URL}`;
     let restData = fetch(url).then((restaurant_data) =>{
@@ -73,30 +81,10 @@ class DBHelper {
     })
   };
 
-  //   let xhr = new XMLHttpRequest();
-  //   xhr.open('GET', DBHelper.DATABASE_URL);
-  //   xhr.onload = () => {
-  //     if (xhr.status === 200) { // Got a success response from server!
-        
-  //       const json = JSON.parse(xhr.responseText);
-  //       console.log(json);
-  //       //const restaurants = json.restaurants;
-  //       const restaurants = json;
-  //       callback(null, restaurants);
-  //     } else { // Oops!. Got an error from server.
-  //       const error = (`Request failed. Returned status of ${xhr.status}`);
-  //       callback(error, null);
-  //     }
-  //   };
-  //   xhr.send();
-  // }
-
-
   /**
    * Fetch a restaurant by its ID.
    */
   static fetchRestaurantById(id, callback) {
-    // fetch all restaurants with proper error handling.
     DBHelper.fetchRestaurants((error, restaurants) => {
       if (error) {
         callback(error, null);
