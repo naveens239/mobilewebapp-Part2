@@ -1,0 +1,41 @@
+{
+  "name": "Restaurant Reviews",
+  "short_name": "RR",
+  "display": "standalone",
+  "start_url": "index.html",
+  "theme_color": "#F3F3F3",
+  "background_color": "#BBBBBB",
+  "description": "MWS Restaurant Reviews PWA",
+  "icons": [
+    {
+      "src": "img/icon/icon-48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "img/icon/icon-72.png",
+      "type": "image/png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "img/icon/icon-96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "img/icon/icon-128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "img/icon/icon-256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "img/icon/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
