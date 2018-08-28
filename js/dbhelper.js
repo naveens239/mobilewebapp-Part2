@@ -68,11 +68,11 @@ class DBHelper {
    * Fetch all restaurants.
    */
   static fetchRestaurants(callback) {
-      return DBHelper.dbRestaurantData().then(restaurants => {
+      return DBHelper.apiRestaurantData().then(restaurants => {
       if(restaurants.length) {
         return Promise.resolve(restaurants);
       } else {
-        return DBHelper.apiRestaurantData();
+        return DBHelper.dbRestaurantData();
       }
     }).then(restaurants => {
       callback(null, restaurants);
