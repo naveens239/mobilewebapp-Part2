@@ -1,3 +1,8 @@
+/*
+Added manifest.json that handles icons, start_url, theme_color,
+display, names
+*/
+
 {
   "name": "Restaurant Reviews",
   "short_name": "RR",
